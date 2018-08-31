@@ -96,15 +96,16 @@ rpart(SEXP ncat2, SEXP method2, SEXP opt2,
     dptr = REAL(opt2);
     rp.min_node = (int) dptr[1];
     rp.min_split = (int) dptr[0];
-    rp.complexity = dptr[2];
-    rp.maxpri = (int) dptr[3] + 1;      /* max primary splits =
+    rp.min_split_weight = (int) dptr[2];
+    rp.complexity = dptr[3];
+    rp.maxpri = (int) dptr[4] + 1;      /* max primary splits =
 					   max competitors + 1 */
     if (rp.maxpri < 1)
 	rp.maxpri = 1;
-    rp.maxsur = (int) dptr[4];
-    rp.usesurrogate = (int) dptr[5];
-    rp.sur_agree = (int) dptr[6];
-    rp.maxnode = (int) pow((double) 2.0, (double) dptr[7]) - 1;
+    rp.maxsur = (int) dptr[5];
+    rp.usesurrogate = (int) dptr[6];
+    rp.sur_agree = (int) dptr[7];
+    rp.maxnode = (int) pow((double) 2.0, (double) dptr[8]) - 1;
     rp.n = nrows(xmat2);
     n = rp.n;                   /* I get tired of typing "rp.n" 100 times
 				 * below */
